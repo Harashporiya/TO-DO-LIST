@@ -24,9 +24,13 @@ const addButton = document.getElementById('addButton')
 addButton.addEventListener('click', function () {
     const taskInput = document.getElementById('taskInput').value;
   
-    const newTask = new Task(taskInput);
-    newTask.displayDetails();
-    document.getElementById('taskInput').value = '';
+    if (taskInput.trim() !== '') {
+        const newTask = new Task(taskInput);
+        newTask.displayDetails();
+        document.getElementById('taskInput').value = '';
+    } else {
+        alert('Please enter a task!');
+    }
   
 })
 
